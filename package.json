@@ -6,7 +6,8 @@
   "scripts": {
     "test": "serverless-bundle test",
     "test create": "serverless invoke local --function create --path mocks/create-event.json",
-    "test get": "serverless invoke local --function get --path mocks/get-event.json"
+    "test get": "serverless invoke local --function get --path mocks/get-event.json",
+    "test create api": "npx aws-api-gateway-cli-test --username='admin@example.com' --password='Passw0rd!' --user-pool-id='us-east-1_H51uWpwIb' --app-client-id='1b4r4oach035nr14dqibrji2re' --cognito-region='us-east-1' --identity-pool-id='us-east-1:2212cb26-e594-4b26-852d-e741a323557e' --invoke-url='https://dxzukbgmt3.execute-api.us-east-1.amazonaws.com/prod' --api-gateway-region='us-east-1' --path-template='/notes' --method='POST' --body='{"content":"hello world", "attachment":"hello.jpg"}'"
   },
   "author": "",
   "license": "MIT",
