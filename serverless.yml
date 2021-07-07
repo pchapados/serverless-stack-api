@@ -23,17 +23,17 @@ provider:
     tableName: notes
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
 
-  iamRoleSatements:
+  iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb: Scan
-        - dynamodb: Query
-        - dynamodb: GetITem
-        - dynamodb: PutItem
-        - dynamodb: UpdateItem
-        - dynamodb: DeleteItem
-        - dynamodb: DescribeTable
-      Resource: 'arn:aws.dynamodb:us-east-1:*:*'
+        - dynamodb:Scan
+        - dynamodb:Query
+        - dynamodb:GetITem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: 'arn:aws:dynamodb:us-east-1:*:*'
 functions:
   create:
     handler: services/create.main
@@ -42,9 +42,30 @@ functions:
           path: notes
           method: post
 
-  hello:
-    handler: handler.hello
+  get:
+    handler: services/get.main
     events:
       - http:
-          path: hello
+          path: notes/{id}
           method: get
+
+  list:
+    handler: services/list.main
+    events:
+      - http:
+          path: notes
+          method: get
+
+  update:
+    handler: services/update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+
+  delete:
+    handler: services/delete.main
+    events:
+      - http:
+          path: notes/{id}
+          method: delete
