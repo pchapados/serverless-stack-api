@@ -1,12 +1,14 @@
 {
   "name": "notes-api",
   "version": "2.2.0",
+  "type": "module",
   "description": "A Node.js starter for Serverless Framework with ES6 and TypeScript support",
   "main": "handler.js",
   "scripts": {
     "test": "serverless-bundle test",
     "test create": "serverless invoke local --function create --path mocks/create-event.json",
-    "test get": "serverless invoke local --function get --path mocks/get-event.json"
+    "test get": "serverless invoke local --function get --path mocks/get-event.json",
+    "unit test": "mocha"
   },
   "author": "",
   "license": "MIT",
@@ -15,6 +17,8 @@
     "url": "https://github.com/AnomalyInnovations/serverless-nodejs-starter.git"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2",
     "serverless-bundle": "4.3.1",
     "serverless-offline": "^5.12.1"
   }
