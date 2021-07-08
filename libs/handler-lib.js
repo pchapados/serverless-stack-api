@@ -13,6 +13,10 @@ export default function handler(lambda) {
     return {
       statusCode,
       body: JSON.stringify(body),
+      headers: {
+        "Access-COntrol-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      }
     };
   };
 }

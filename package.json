@@ -1,7 +1,6 @@
 {
   "name": "notes-api",
   "version": "2.2.0",
-  "type": "module",
   "description": "A Node.js starter for Serverless Framework with ES6 and TypeScript support",
   "main": "handler.js",
   "scripts": {
@@ -21,5 +20,8 @@
     "mocha": "^9.0.2",
     "serverless-bundle": "4.3.1",
     "serverless-offline": "^5.12.1"
+  },
+  "dependencies": {
+    "stripe": "^8.160.0"
   }
 }
